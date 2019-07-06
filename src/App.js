@@ -6,10 +6,6 @@ import {Table, Container, Modal, Button, Image, Row, Col} from 'react-bootstrap'
 import Unsplash from 'unsplash-js';
 
 
-const unsplash = new Unsplash({
-  applicationId: "ef0bf81c2251c0a3d05c9ac1ede37656c80b9bcaccbefe7d5c99afd6cb28a03c",
-  secret: "4c0e219e31a66f6ace99bdecb1c0b359ed6feb33c67099435e12b413ba1297ed"
-});
 
 class App extends React.Component {
   constructor() {
@@ -22,7 +18,6 @@ class App extends React.Component {
       currentPostImage: {},
       currentSubmittedItems: []
     };
-    this.getRandomImage = this.getRandomImage.bind(this)
     this.getRandomAbout = this.getRandomAbout.bind(this)
     this.getRandomNumber = this.getRandomNumber.bind(this)
     this.fetchUserData = this.fetchUserData.bind(this)
@@ -35,13 +30,6 @@ class App extends React.Component {
       this.getRandomAbout()
   }
 
-  getRandomImage() {
-    unsplash.photos.getRandomPhoto({ username: "naoufal" })
-      .then(res=>res.json())
-      .then(json => {
-        this.setState({currentPostImage: json.urls.thumb})
-      });
-  }
 
   getRandomNumber() {
     const randomSmNum = Math.floor(Math.random()*11)
@@ -141,7 +129,7 @@ class App extends React.Component {
                   {this.state.currentAbout}
                 </Col>
                 <Col>
-                  <Image src={this.state.currentPostImage} fluid rounded />
+                  <Image src="https://source.unsplash.com/random" fluid rounded />
 
                 </Col>
               </Row>
