@@ -3,7 +3,6 @@ import './App.css';
 import NavigationComp from './Components/Nav';
 import {Table, Container, Modal, Button, Image, Row, Col} from 'react-bootstrap'
 
-import Unsplash from 'unsplash-js';
 
 
 
@@ -26,7 +25,6 @@ class App extends React.Component {
   
   componentWillMount() {
       this.fetchLatestNews();
-      this.getRandomImage()
       this.getRandomAbout()
   }
 
@@ -88,7 +86,6 @@ class App extends React.Component {
     
     handleClose() {
       this.setState({posts: this.state.posts, show: false})
-      this.getRandomImage()
       this.getRandomAbout();
   }
 
